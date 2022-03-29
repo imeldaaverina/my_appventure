@@ -1,5 +1,13 @@
-import Input from "../components/input";
-import Button from "../components/button";
-import { SubTitle, Title } from "../components/typography";
-import Head from "next/head";
-
+import Head from 'next/head';
+import RegistrationContainer from '../containers/registration';
+const RegistrationPage = () => {
+  return (
+    <>
+      <Head>
+        <title>Sign Up</title>
+      </Head>
+      <RegistrationContainer />
+    </>
+  );
+};
+export default RegistrationPage;
