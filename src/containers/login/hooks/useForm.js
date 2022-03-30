@@ -46,11 +46,11 @@ const useForm = ({
             const _errors = {};
             if (!values.password) {
                 _isValid = false;
-                Object.assign(_errors, { ..._errors, password: 'password is required' });
+                Object.assign(_errors, { ..._errors, password: 'password and email is required' });
             }
             if (!values.email) {
                 _isValid = false;
-                Object.assign(_errors, { ..._errors, email: 'email is required' });
+                Object.assign(_errors, { ..._errors, email: 'email and is required' });
             }
             if (touched.email && !values.email) {
                 _isValid = false;
@@ -58,14 +58,13 @@ const useForm = ({
             }
             if (touched.password && !values.password) {
                 _isValid = false;
-                Object.assign(_errors, { ..._errors, password: 'password is required' });
+                Object.assign(_errors, { ..._errors, password: 'password and email is required' });
             }
             if (values.password && values.password !== "" && values.password.length < 8) {
                 _isValid = false;
                 Object.assign(_errors, { ..._errors, password: 'password min 8 characters' });
             }
-            if (values.email && values.email !== "" && !values.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/))
-            {
+            if (values.email && values.email !== "" && !values.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
                 _isValid = false;
                 Object.assign(_errors, { ..._errors, email: 'email is not valid' });
             }

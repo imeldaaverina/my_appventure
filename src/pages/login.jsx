@@ -4,7 +4,7 @@ const LoginPage = () => {
   return (
     <>
       <Head>
-        <title>Sign In - BinarGram</title>
+        <title>Log In - My Appventure</title>
       </Head>
       <LoginContainer />
     </>
