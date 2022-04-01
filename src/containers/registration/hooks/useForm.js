@@ -6,7 +6,6 @@ const useForm = ({ initialValues }) => {
   const [touched, setTouched] = useState(initTouched);
   const [errors, setErrors] = useState();
   const [isValid, setIsValid] = useState(false);
-  
   const handleChange = (fieldName, value) => {
     setValues({
       ...values,

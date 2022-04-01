@@ -79,8 +79,7 @@ const Upload = () => {
           <div className="h-60 bg-gray-100 ">
             <label
               htmlFor="files"
-              className=" w-full h-full cursor-pointer flex justify-center items-center "
-            >
+              className=" w-full h-full cursor-pointer flex justify-center items-center">
               {preview ? <img className="h-full w-full object-cover" src={preview} /> : <CameraIcon className="h-8 w-8" />}
               <input id="files" type="file" name="files" className="hidden" accept=".jpg, .png, .jpeg" onChange={handleChangeFile} dataTestId="input-files"   />
             </label>

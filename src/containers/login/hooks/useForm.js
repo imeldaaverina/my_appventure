@@ -10,6 +10,7 @@ const useForm = ({
     const [touched, setTouched] = useState(initTouched);
     const [errors, setErrors] = useState();
     const [isValid, setIsValid] = useState(false);
+    
     const handleChange = (fieldName, value) => {
         setValues({
             ...values,
@@ -60,14 +61,15 @@ const useForm = ({
                 _isValid = false;
                 Object.assign(_errors, { ..._errors, password: 'password and email is required' });
             }
-            if (values.password && values.password !== "" && values.password.length < 8) {
+            if (values.password && values.password !== "" && values.password.length < 6 && values.password.length > 10) {
                 _isValid = false;
-                Object.assign(_errors, { ..._errors, password: 'password min 8 characters' });
+                Object.assign(_errors, { ..._errors, password: 'password harus 6-10 karakter' });
             }
             if (values.email && values.email !== "" && !values.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
                 _isValid = false;
                 Object.assign(_errors, { ..._errors, email: 'email is not valid' });
             }
+           
             setErrors(_errors);
             setIsValid(_isValid);
         }
