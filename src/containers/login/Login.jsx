@@ -48,7 +48,7 @@ const LoginContainer = () => {
  
     return ( 
         <NoAuthProvider> 
-          <body className="font-Poppins bg-cover bg-center h-screen bg-[url('https://s3-alpha-sig.figma.com/img/7a6c/e637/7a1c306ebbfa54192e3ddeab2d49b6b9?Expires=1649635200&Signature=AF6hQeNyNS-BUtuJcv5n9NiS24CXJy~HQcFzv0cfGcZbFEvfgOjp3cJ479b5ilWo--uUDywI2uJGR78Ab2f2Jjckxg4wF4g3BFNvS4~20TWvCV18LCI7utNOSOoEmmeROg4IcK-XouQY8Mfy3fGusRN1SEU7rS2vyO7zb-rNmoh3dYHFGPgcqptQqLoFwdjfqguT3Zf6wjgtCiIaz0aZD52tEc0PqKmcM6iV0Lqo~YDLW1h2pcEhKGgn-fKWRDgrXkGD47fepVVvg4VjrVSg7slt6tE06-ArBPsV2i9X~Z7W8O7xPauliD3aeNxT-Fc~QcQ0njBj7GMqZYtaEauWog__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA')]">
+          <body className="font-Poppins bg-cover bg-center h-screen bg-[url('../../public/blur_bg.png')]">
             <main className="p-3 text-white rounded-t-xl max-w-md mx-auto fixed bottom-0 left-0 right-0 bg-[#457275] justify-center items-center"> 
                 <div className="w-full"> 
                     <div className="w-full p-2 py-1"> 

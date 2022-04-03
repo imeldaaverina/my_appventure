@@ -60,7 +60,7 @@ const RegistrationContainer = () => {
       // //     postedBy: `${getUser().username}`,
       // //   },
       // };
-      // const submitPost = await callAPI({
+      // const submitRegistration = await callAPI({
       //   url: '/posts',
       //   method: 'post',
       //   data: payload,
@@ -68,7 +68,7 @@ const RegistrationContainer = () => {
       //     Authorization: `Bearer ${getJwt()}`,
       //   },
       // });
-      // if (submitPost.status === 200) {
+      // if (submitRegistration.status === 200) {
       //   setLoading(false);
       //   alert('Create posts success!');
       //   push('/');
@@ -98,8 +98,8 @@ const RegistrationContainer = () => {
  
   return ( 
     <NoAuthProvider>  
-    <main className="w-full text-gray-700 h-screen flex flex-col space-y-3 justify-center items-center font-Poppins bg-cover bg-center bg-[url('https://s3-alpha-sig.figma.com/img/7a6c/e637/7a1c306ebbfa54192e3ddeab2d49b6b9?Expires=1649635200&Signature=AF6hQeNyNS-BUtuJcv5n9NiS24CXJy~HQcFzv0cfGcZbFEvfgOjp3cJ479b5ilWo--uUDywI2uJGR78Ab2f2Jjckxg4wF4g3BFNvS4~20TWvCV18LCI7utNOSOoEmmeROg4IcK-XouQY8Mfy3fGusRN1SEU7rS2vyO7zb-rNmoh3dYHFGPgcqptQqLoFwdjfqguT3Zf6wjgtCiIaz0aZD52tEc0PqKmcM6iV0Lqo~YDLW1h2pcEhKGgn-fKWRDgrXkGD47fepVVvg4VjrVSg7slt6tE06-ArBPsV2i9X~Z7W8O7xPauliD3aeNxT-Fc~QcQ0njBj7GMqZYtaEauWog__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA')]"> 
-      <div className="p-3 text-white rounded-t-xl max-w-md mx-auto fixed bottom-0 left-0 right-0 bg-[#457275] justify-center items-center"> 
+    <main className="w-full text-gray-700 h-screen flex flex-col space-y-3 justify-center items-center font-Poppins bg-cover bg-center bg-[url('../../public/blur_bg.png')]"> 
+      <div className="p-3 text-white rounded-t-xl max-w-md mx-auto fixed bottom-0 left-0 right-0 bg-[#457275] justify-center items-center my-3 max-h-100%"> 
       <div className="w-full p-1 pt-3"> 
           <Title text="Hai," />
           <SubTitle content="Belum punya akun?" /> 
@@ -123,10 +123,10 @@ const RegistrationContainer = () => {
                   onBlur={handleBlur} 
                   dataTestId="input-username" 
                 /> 
-
+                <div className="flex justify-center">
                 <Input
                   name="email" 
-                  label="Email" 
+                  label="Email"
                   type="text" 
                   placeholder="Ketik email anda disini" 
                   onChange={handleChange} 
@@ -140,11 +140,12 @@ const RegistrationContainer = () => {
                   </div> 
                 )}  */}
                 {/* {getIn(touched, "email") && getIn(errors, "email") && ( 
-                  <div className="flex items-center justify-start text-xs font-bold text-[#FF6969] pb-1" data-testid="error-email"> 
+                  <div className="flex items-center justify-start text-xs font-bold text-[#FF6969] pb-1 mt--4" data-testid="error-email"> 
                     <ExclamationCircleIcon className="w-9 h-9 " />
                     <p className="px-2 leading-5">{getIn(errors, "email")} </p>
                   </div> 
                 )}  */}
+                </div>
                          
                 <Input2 
                   name="password" 
@@ -155,9 +156,15 @@ const RegistrationContainer = () => {
                   onBlur={handleBlur} 
                   dataTestId="input-password" 
                 />
+                {getIn(touched, "password") && getIn(errors, "password") && ( 
+                        <div className="flex items-center justify-start text-xs font-bold text-[#FF6969] pb-1" data-testid="error-password"> 
+                            <ExclamationCircleIcon className="w-9 h-9 " />
+                           <p className="px-2 leading-5">{getIn(errors, "password")} </p>
+                        </div> 
+                        )} 
                
         </form> 
-        <Button type="submit" label={loading ? 'Please wait...' : 'Daftar sekarang'}/>  
+        <Button type="submit" label={loading ? 'Please wait...' : 'Daftar sekarang'} href="../success_registration"/>  
           <div className="text-sm flex justify-center mt-2 pb-3">
               <p className="text-white font-light text-xs">
                 Sudah punya akun? <a className="font-semibold underline text-[#FEC868]" href="../login">Masuk</a>

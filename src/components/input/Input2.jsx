@@ -30,15 +30,7 @@ const Input2 = ({ label, name, type, onChange, onBlur, placeholder, dataTestId }
       />
         <EyeIcon className="h-5 w-5 text-black" onClick={togglePassword}/>
       </div>
-      {/* <input 
-      type={passwordShown ? "text" : "password"}  
-      name={name} 
-      className="py-2 focus:ring-0 focus:outline-none border-b text-black text-sm w-full p-4 rounded-lg" 
-      placeholder={placeholder} 
-      onChange={onChange} 
-      onBlur={onBlur} 
-      data-testid={dataTestId} 
-      /> */}
+     
       
     </label>
     
