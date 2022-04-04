@@ -51,11 +51,11 @@ const useForm = ({
             }
             if (!values.email) {
                 _isValid = false;
-                Object.assign(_errors, { ..._errors, email: 'email and is required' });
+                Object.assign(_errors, { ..._errors, email: 'diperlukan email' });
             }
             if (touched.email && !values.email) {
                 _isValid = false;
-                Object.assign(_errors, { ..._errors, email: 'email is required' });
+                Object.assign(_errors, { ..._errors, email: 'diperlukan email' });
             }
             if (touched.password && !values.password) {
                 _isValid = false;
@@ -67,7 +67,7 @@ const useForm = ({
             }
             if (values.email && values.email !== "" && !values.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
                 _isValid = false;
-                Object.assign(_errors, { ..._errors, email: 'email is not valid' });
+                Object.assign(_errors, { ..._errors, email: 'email tidak valid' });
             }
            
             setErrors(_errors);

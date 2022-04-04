@@ -5,7 +5,7 @@ const useRegistration = () => {
     const [loading, setLoading] = useState(); 
     const submit = async (values) => { 
         const response = await callAPI({ 
-            url: '/auth/local', 
+            url: '/user/daftar', 
             method: 'POST', 
             data: values, 
         }); 

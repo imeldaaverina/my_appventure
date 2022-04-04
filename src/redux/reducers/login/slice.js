@@ -30,7 +30,7 @@ export const useLoginDispatcher = () => {
   const doLogin = async (values) => {
     dispatch(toggleLoading(true));
     const response = await callAPI({
-      url: '/auth/local',
+      url: '/user-login/login',
       method: 'POST',
       data: values,
     });

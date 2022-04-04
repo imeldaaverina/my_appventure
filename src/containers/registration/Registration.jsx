@@ -1,6 +1,6 @@
 import {Input, Input2} from "../../components/input";  
 import { useState } from 'react';
-import { Button, Button2 } from "../../components/button";  
+import { Button, Button2, ButtonExit } from "../../components/button";  
 import { Title, SubTitle, TitleForm } from "../../components/typography";  
 import { NoAuthProvider } from "../../providers/auth";  
 import { useFormik, getIn } from "formik";  
@@ -52,27 +52,27 @@ const RegistrationContainer = () => {
           Authorization: `Bearer ${getJwt()}`,
         },
       });
-      // const fileUrl = upload.data[0].url;
-      // // const payload = {
-      // //   data: {
-      // //     photo: `${fileUrl}`,
-      // //     isPublish: true,
-      // //     postedBy: `${getUser().username}`,
-      // //   },
-      // };
-      // const submitRegistration = await callAPI({
-      //   url: '/posts',
-      //   method: 'post',
-      //   data: payload,
-      //   headers: {
-      //     Authorization: `Bearer ${getJwt()}`,
-      //   },
-      // });
-      // if (submitRegistration.status === 200) {
-      //   setLoading(false);
-      //   alert('Create posts success!');
-      //   push('/');
-      // }
+      const fileUrl = upload.data[0].url;
+      const payload = {
+        data: {
+          photo: `${fileUrl}`,
+          isPublish: true,
+          postedBy: `${getUser().username}`,
+        },
+      };
+      const submitRegistration = await callAPI({
+        url: '/posts',
+        method: 'post',
+        data: payload,
+        headers: {
+          Authorization: `Bearer ${getJwt()}`,
+        },
+      });
+      if (submitRegistration.status === 200) {
+        setLoading(false);
+        alert('Create posts success!');
+        push('/success_registration');
+      }
     };
       
     const {  
@@ -99,12 +99,22 @@ const RegistrationContainer = () => {
   return ( 
     <NoAuthProvider>  
     <main className="w-full text-gray-700 h-screen flex flex-col space-y-3 justify-center items-center font-Poppins bg-cover bg-center bg-[url('../../public/blur_bg.png')]"> 
-      <div className="shadow-md p-3 px-3 text-white rounded-xl max-w-md mx-auto fixed bg-[#457275] justify-center items-center my-3 max-h-100%"> 
-      <div className="w-full p-1 pt-3"> 
-          <Title text="Hai," />
-          <SubTitle content="Belum punya akun?" /> 
+      <div className="shadow-md text-white rounded-xl max-w-md mx-auto top-0 bottom-0 right-0 left-0 fixed bg-[#457275] justify-center items-center max-h-100%"> 
+      <div className="w-full">
+      <div className="w-full">
+        <div className="flex justify-between"> 
+          <div className="px-5 pt-5">
+            <Title text="Hai," />
+          </div>
+          <a href="#">
+            <ButtonExit />
+          </a>
+        </div>
+          <div className="px-5">
+            <SubTitle content="Belum punya akun?" /> 
+          </div>
         </div> 
-          <form className="w-full p-2 py-6 bg-[#457275]" onSubmit={handleSubmit}>
+          <form className="w-full px-5 p-2 pt-10 pb-4 bg-[#457275]" onSubmit={handleSubmit}>
               <div className="text-center flex-col justify-center items-center">
                   <TitleForm text="Yuk daftar!" /> 
                   <label
@@ -114,62 +124,75 @@ const RegistrationContainer = () => {
                     <input id="files" type="file" name="files" className="hidden" accept=".jpg, .png, .jpeg" onChange={handleChangeFile} dataTestId="input-files"   />
                   </label>  
               </div>
+              <div className="font-normal text-sm mb-1 flex justify-between">
+                    Username
+                    {getIn(touched, "username") && getIn(errors, "username") && ( 
+                        <div className="flex items-center justify-start text-xs text-white font-light" data-testid="error-username"> 
+                            <ExclamationCircleIcon className="w-5 h-5 text-[#FF8181] pr-1" />
+                            {getIn(errors, "username")} 
+                        </div> 
+                        )} 
+                    </div>
                 <Input
                   name="username" 
-                  label="Username" 
+                  label="" 
                   type="text" 
                   placeholder="Ketik username anda disini" 
                   onChange={handleChange} 
                   onBlur={handleBlur} 
                   dataTestId="input-username" 
                 /> 
-                <div className="flex justify-center">
+                {/* <div className="flex justify-center"> */}
+                <div className="font-normal text-sm mb-1 flex justify-between">
+                        Email
+                        {getIn(touched, "email") && getIn(errors, "email") && ( 
+                        <div className="flex items-center justify-start text-xs text-white font-light" data-testid="error-email"> 
+                            <ExclamationCircleIcon className="w-5 h-5 text-[#FF8181] pr-1" />
+                            {getIn(errors, "email")} 
+                        </div> 
+                        )} 
+                    </div>
                 <Input
                   name="email" 
-                  label="Email"
+                  label=""
                   type="text" 
                   placeholder="Ketik email anda disini" 
                   onChange={handleChange} 
                   onBlur={handleBlur} 
                   dataTestId="input-email" 
                 /> 
-                         
-                {/* {getIn(touched, "email") && getIn(errors, "email") && ( 
-                  <div className="text-xs text-red-500 pb-3" data-testid="error-email"> 
-                    {getIn(errors, "email")} 
-                  </div> 
-                )}  */}
-                {/* {getIn(touched, "email") && getIn(errors, "email") && ( 
-                  <div className="flex items-center justify-start text-xs font-bold text-[#FF6969] pb-1 mt--4" data-testid="error-email"> 
-                    <ExclamationCircleIcon className="w-9 h-9 " />
-                    <p className="px-2 leading-5">{getIn(errors, "email")} </p>
-                  </div> 
-                )}  */}
-                </div>
+                
+                <div className="font-normal text-sm flex justify-between">
+                        Kata sandi
+                        {getIn(touched, "password") && getIn(errors, "password") && ( 
+                        <div className="flex items-center justify-start text-xs text-white font-light" data-testid="error-password"> 
+                            <ExclamationCircleIcon className="w-5 h-5 text-[#FF8181] pr-1" />
+                           {getIn(errors, "password")}
+                        </div> 
+                        )} 
+                    </div>
                          
                 <Input2 
                   name="password" 
-                  label="Kata sandi" 
+                  label="" 
                   type="password"
                   placeholder="Masukan kata sandi anda" 
                   onChange={handleChange} 
                   onBlur={handleBlur} 
                   dataTestId="input-password" 
                 />
-                {getIn(touched, "password") && getIn(errors, "password") && ( 
-                        <div className="flex items-center justify-start text-xs font-bold text-[#FF6969] pb-1" data-testid="error-password"> 
-                            <ExclamationCircleIcon className="w-9 h-9 " />
-                           <p className="px-2 leading-5">{getIn(errors, "password")} </p>
-                        </div> 
-                        )} 
                
+              <div className="mt-8">
+                <Button type="submit" label={loading ? 'Please wait...' : 'Daftar sekarang'}/>  
+                <div className="text-sm flex justify-center mt-2 pb-3">
+                  <p className="text-white font-light text-xs">
+                    Sudah punya akun? <a className="font-semibold underline text-[#FEC868]" href="../login">Masuk</a>
+                  </p>
+                </div>
+              </div>  
         </form> 
-        <Button type="submit" label={loading ? 'Please wait...' : 'Daftar sekarang'} href="../success_registration"/>  
-          <div className="text-sm flex justify-center mt-2 pb-3">
-              <p className="text-white font-light text-xs">
-                Sudah punya akun? <a className="font-semibold underline text-[#FEC868]" href="../login">Masuk</a>
-              </p>
-          </div>
+        
+      </div>
       </div> 
     </main> 
     </NoAuthProvider>  

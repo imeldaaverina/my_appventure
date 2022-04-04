@@ -34,39 +34,39 @@ const useForm = ({ initialValues }) => {
     const _errors = {};
     if (!values.username) {
       _isValid = false;
-      Object.assign(_errors, { ..._errors, username: 'username is required' });
+      Object.assign(_errors, { ..._errors, username: 'diperlukan username' });
     }
     if (!values.password) {
       _isValid = false;
-      Object.assign(_errors, { ..._errors, password: 'password is required' });
+      Object.assign(_errors, { ..._errors, password: 'diperlukan password' });
     }
     if (!values.email) {
       _isValid = false;
-      Object.assign(_errors, { ..._errors, email: 'email is required' });
+      Object.assign(_errors, { ..._errors, email: 'diperlukan email' });
     }
     if (touched.username && !values.username) {
       _isValid = false;
-      Object.assign(_errors, { ..._errors, username: 'username is required' });
+      Object.assign(_errors, { ..._errors, username: 'diperlukan username' });
     }
     if (touched.email && !values.email) {
       _isValid = false;
-      Object.assign(_errors, { ..._errors, email: 'email is required' });
+      Object.assign(_errors, { ..._errors, email: 'diperlukan email' });
     }
     if (touched.password && !values.password) {
       _isValid = false;
-      Object.assign(_errors, { ..._errors, password: 'password is required' });
+      Object.assign(_errors, { ..._errors, password: 'diperlukan password' });
     }
-    if (values.username && values.username !== '' && values.username.length < 8) {
+    if (values.username && values.username !== '' && values.username.length > 3 && values.username.length < 15) {
       _isValid = false;
-      Object.assign(_errors, { ..._errors, username: 'username min 8 characters' });
+      Object.assign(_errors, { ..._errors, username: 'username gunakan 3-15 karakter' });
     }
-    if (values.password && values.password !== '' && values.password.length < 8) {
+    if (values.password && values.password !== '' && values.password.length > 6 && values.password.length < 10 && values.password.match(/^\S*$/)) {
       _isValid = false;
-      Object.assign(_errors, { ..._errors, password: 'password min 8 characters' });
+      Object.assign(_errors, { ..._errors, password: 'Kata sandi gunakan 6-10 karakter, tanpa spasi' });
     }
     if (values.email && values.email !== '' && !values.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
       _isValid = false;
-      Object.assign(_errors, { ..._errors, email: 'email is not valid' });
+      Object.assign(_errors, { ..._errors, email: 'email tidak valid' });
     }
     setErrors(_errors);
     setIsValid(_isValid);
