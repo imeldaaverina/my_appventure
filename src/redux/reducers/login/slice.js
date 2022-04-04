@@ -3,11 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { callAPI } from '../../../helpers/network';
 const initialState = {
   loading: false,
+  error: ""
 };
 const slices = createSlice({
   initialState,
   name: 'login',
   reducers: {
+    setError (state, action) {
+      Object.assign(state, {
+        ...state,
+        error: action.payload,
+      });
+    },
     toggleLoading(state, action) {
       Object.assign(state, {
         ...state,
@@ -16,7 +23,7 @@ const slices = createSlice({
     },
   },
 });
-const { toggleLoading } = slices.actions;
+const { toggleLoading, setError } = slices.actions;
 export const useLoginDispatcher = () => {
   const { login } = useSelector((state) => state);
   const dispatch = useDispatch();

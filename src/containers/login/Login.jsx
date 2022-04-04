@@ -1,5 +1,5 @@
 import {Input, Input2} from "../../components/input"; 
-import { Button, Button2} from "../../components/button"; 
+import { Button, Button2, ButtonExit} from "../../components/button"; 
 import { Title, SubTitle,TitleForm } from "../../components/typography"; 
 import { NoAuthProvider } from "../../providers/auth"; 
 import { useFormik, getIn } from "formik"; 
@@ -49,28 +49,47 @@ const LoginContainer = () => {
     return ( 
         <NoAuthProvider> 
           <body className="font-Poppins bg-cover bg-center h-screen bg-[url('../../public/blur_bg.png')]">
-            <main className="p-3 text-white rounded-t-xl max-w-md mx-auto fixed bottom-0 left-0 right-0 bg-[#457275] justify-center items-center"> 
-                <div className="w-full"> 
-                    <div className="w-full p-2 py-1"> 
+            <main className="text-white rounded-xl min-h-screen max-w-md mx-auto top-0 bottom-0 right-0 left-0 bg-[#457275]"> 
+                <div className="w-full">
+                    <div className="w-full"> 
+                      <div className="flex justify-between">
+                        <div className="px-5 pt-5">
                         <Title text="Hai," />
                         <Title /> 
+                        </div>
+                        <a href="#">
+                        <ButtonExit />
+                        </a>
+                      </div>
+                      <div className="px-5">
                         <SubTitle content="Selamat Datang!" /> 
+                        </div>
                     </div> 
-                    <form className="w-full p-2 pt-10 pb-4 bg-[#457275]" onSubmit={handleSubmit}>
-                        <div className="py-6 text-center">
-                        <TitleForm text="Masuk ke akun anda" />   
+                    <form className="w-full rounded-xl px-5 p-2 pt-10 pb-4 bg-[#457275]" onSubmit={handleSubmit}>
+                        <div className="pb-7 pt-4 text-center">
+                        <TitleForm text="Masuk ke akun Anda" />   
                         </div>
 
                         {getIn(touched, "password") && getIn(errors, "password") && getIn(touched, "email") && getIn(errors, "email")&& ( 
-                        <div className="flex items-center justify-start text-xs font-bold text-[#FF6969] pb-2" data-testid="error-password"> 
+                        <div className="flex items-center justify-center text-xs font-semibold text-[#FF8181] pb-4" data-testid="error-password"> 
                            <ExclamationCircleIcon className="w-9 h-9 " />
-                           <p className="px-2 leading-5">Alamat email atau kata sandi yang anda masukan <br></br> tidak valid</p>
+                           <p className="px-1 leading-5">Alamat email atau kata sandi yang <br></br> anda masukan tidak valid</p>
                         </div> 
                         )} 
 
+                    <div className="font-normal text-sm mb-1 flex justify-between">
+                        Email
+                        {getIn(touched, "email") && getIn(errors, "email") && ( 
+                        <div className="flex items-center justify-start text-xs text-white font-light" data-testid="error-email"> 
+                            <ExclamationCircleIcon className="w-5 h-5 text-[#FF8181] pr-1" />
+                            {getIn(errors, "email")} 
+                        </div> 
+                        )} 
+                    </div>
+
                         <Input
                         name="email" 
-                        label="Email" 
+                        label="" 
                         type="text" 
                         placeholder="Ketik email anda disini" 
                         onChange={handleChange} 
@@ -78,46 +97,37 @@ const LoginContainer = () => {
                         dataTestId="input-email" 
                         /> 
                          
-                        {/* {getIn(touched, "email") && getIn(errors, "email") && ( 
-                        <div className="text-xs text-red-500 pb-3" data-testid="error-email"> 
-                            {getIn(errors, "email")} 
+                    <div className="font-normal text-sm flex justify-between">
+                        Kata sandi
+                        {getIn(touched, "password") && getIn(errors, "password") && ( 
+                        <div className="flex items-center justify-start text-xs text-white font-light" data-testid="error-password"> 
+                            <ExclamationCircleIcon className="w-5 h-5 text-[#FF8181] pr-1" />
+                           {getIn(errors, "password")}
                         </div> 
-                        )}  */}
-                        {/* {getIn(touched, "email") && getIn(errors, "email") && ( 
-                        <div className="flex items-center justify-start text-xs font-bold text-[#FF6969] pb-1" data-testid="error-email"> 
-                            <ExclamationCircleIcon className="w-9 h-9 " />
-                           <p className="px-2 leading-5">{getIn(errors, "email")} </p>
-                        </div> 
-                        )}  */}
-                         
+                        )} 
+                    </div>
+
                         <Input2 
                         name="password" 
-                        label="Kata sandi" 
+                        label="" 
                         type="password" 
                         placeholder="Masukan kata sandi anda" 
                         onChange={handleChange} 
                         onBlur={handleBlur} 
                         dataTestId="input-password" 
                         /> 
-                        {/* {getIn(touched, "password") && getIn(errors, "password") && ( 
-                        <div className="flex items-center justify-start text-xs font-bold text-[#FF6969] pb-1" data-testid="error-password"> 
-                            <ExclamationCircleIcon className="w-9 h-9 " />
-                           <p className="px-2 leading-5">{getIn(errors, "password")} </p>
-                        </div> 
-                        )}  */}
                          
                     <div className="flex items-center justify-between pb-5">
                         <div className="flex items-center">
-                            <a className="font-semibold text-xs text-white underline" href="#">
+                            <a className="font-light py-2 text-xs text-white underline" href="#">
                             Lupa kata sandi?
                             </a>
                         </div>
                     </div>
-
-                        <Button type="submit" label={loading ? 'Please wait...' : 'Masuk'} /> 
+                        <Button type="submit" label={loading ? 'Please wait...' : 'Masuk'} href="../success_registration"/> 
                         <div className="text-sm flex justify-center mt-2">
                             <p className="text-white font-light text-xs">
-                            Belum punya akun? <a className="font-semibold underline" href="../registration">Daftar gratis</a>
+                            Belum punya akun? <a className="underline text-[#FEC868]" href="../registration">Daftar Disini</a>
                             </p>
                         </div>
                     </form> 
