@@ -4,7 +4,7 @@ const RegistrationPage = () => {
   return (
     <>
       <Head>
-        <title>Sign Up</title>
+        <title>Sign Up - My Appventure</title>
       </Head>
       <RegistrationContainer />
     </>

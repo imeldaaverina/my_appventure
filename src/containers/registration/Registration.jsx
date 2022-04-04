@@ -99,7 +99,7 @@ const RegistrationContainer = () => {
   return ( 
     <NoAuthProvider>  
     <main className="w-full text-gray-700 h-screen flex flex-col space-y-3 justify-center items-center font-Poppins bg-cover bg-center bg-[url('../../public/blur_bg.png')]"> 
-      <div className="p-3 text-white rounded-t-xl max-w-md mx-auto fixed bottom-0 left-0 right-0 bg-[#457275] justify-center items-center my-3 max-h-100%"> 
+      <div className="shadow-md p-3 px-3 text-white rounded-xl max-w-md mx-auto fixed bg-[#457275] justify-center items-center my-3 max-h-100%"> 
       <div className="w-full p-1 pt-3"> 
           <Title text="Hai," />
           <SubTitle content="Belum punya akun?" /> 
