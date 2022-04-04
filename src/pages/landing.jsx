@@ -7,7 +7,7 @@ const LandingPage = () => {
   return (
     <>
       <Head>
-        <title>Landing</title>
+        <title>Welcome</title>
       </Head>
       <LandingContainer />
       {/* <main className="font-Poppins bg-cover bg-center h-screen bg-[url('../../public/blur_bg.png')] flex justify-center items-center"> 
