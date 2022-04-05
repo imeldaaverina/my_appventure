@@ -98,8 +98,8 @@ const RegistrationContainer = () => {
  
   return ( 
     <NoAuthProvider>  
-    <main className="w-full text-gray-700 h-screen flex flex-col space-y-3 justify-center items-center font-Poppins bg-cover bg-center bg-[url('../../public/blur_bg.png')]"> 
-      <div className="shadow-md text-white rounded-xl max-w-md mx-auto top-0 bottom-0 right-0 left-0 fixed bg-[#457275] justify-center items-center max-h-100%"> 
+      <body className="font-Poppins bg-cover bg-center bg-[url('../../public/blur_bg.png')]">
+      <main className="text-white rounded-xl min-h-screen max-w-md mx-auto top-0 bottom-0 right-0 left-0 bg-[#457275]"> 
       <div className="w-full">
       <div className="w-full">
         <div className="flex justify-between"> 
@@ -114,15 +114,17 @@ const RegistrationContainer = () => {
             <SubTitle content="Belum punya akun?" /> 
           </div>
         </div> 
-          <form className="w-full px-5 p-2 pt-10 pb-4 bg-[#457275]" onSubmit={handleSubmit}>
+          <form className="w-full rounded-xl px-5 p-2 pt-7 pb-4 bg-[#457275]" onSubmit={handleSubmit}>
               <div className="text-center flex-col justify-center items-center">
                   <TitleForm text="Yuk daftar!" /> 
+                  <div className="pt-2">
                   <label
                     htmlFor="files"
                     className="w-20 h-20 m-auto flex justify-center items-center rounded-full cursor-pointer bg-white">
                       {preview ? <img className="h-full w-full object-cover rounded-full bg-white" src={preview} /> : <CameraIcon className="h-8 w-8 text-gray-600" />}
                     <input id="files" type="file" name="files" className="hidden" accept=".jpg, .png, .jpeg" onChange={handleChangeFile} dataTestId="input-files"   />
-                  </label>  
+                  </label>
+                  </div>
               </div>
               <div className="font-normal text-sm mb-1 flex justify-between">
                     Username
@@ -193,8 +195,8 @@ const RegistrationContainer = () => {
         </form> 
         
       </div>
-      </div> 
     </main> 
+    </body>
     </NoAuthProvider>  
   ); 
 }; 

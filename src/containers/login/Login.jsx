@@ -48,7 +48,7 @@ const LoginContainer = () => {
  
     return ( 
         <NoAuthProvider> 
-          <body className="font-Poppins bg-cover bg-center h-screen bg-[url('../../public/blur_bg.png')]">
+          <body className="font-Poppins bg-cover bg-center bg-[url('../../public/blur_bg.png')]">
             <main className="text-white rounded-xl min-h-screen max-w-md mx-auto top-0 bottom-0 right-0 left-0 bg-[#457275]"> 
                 <div className="w-full">
                     <div className="w-full"> 
@@ -127,7 +127,7 @@ const LoginContainer = () => {
                         <Button type="submit" label={loading ? 'Please wait...' : 'Masuk'} href="../success_registration"/> 
                         <div className="text-sm flex justify-center mt-2">
                             <p className="text-white font-light text-xs">
-                            Belum punya akun? <a className="underline text-[#FEC868]" href="../registration">Daftar Disini</a>
+                            Belum punya akun? <a className="underline font-semibold text-[#FEC868]" href="../registration">Daftar Disini</a>
                             </p>
                         </div>
                     </form> 
