@@ -3,34 +3,13 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className=" bg-white h-16 fixed bottom-0 left-0 w-full z-50">
-      <div className="max-w-md mx-auto h-full border-t border-r border-l flex justify-center items-center space-x-4">
-        <Link href="/">
-          <button type="button" className="inline-flex w-16 h-full justify-center items-center flex-col border-t-4 border-indigo-400 text-indigo-400">
-            <HomeIcon className="w-6 h-6" />
-            <span className="text-sm">
-              Home
-            </span>
-          </button>
-        </Link>
+    <footer className="font-Poppins bg-[#457275] min-h-min fixed bottom-0 left-0 w-full z-50">
+      <div className="max-w-md mx-auto h-full">
+        
+        <div className="text-white text-sm ml-2 ">
+          <p>My Appventure merupakan forum komunitas online yang diprioritaskan bagi para pecinta alam untuk menambah pengetahuan dan memberikan kebebasan berekspresi bagi penggunanya.</p>
+        </div>
 
-        <Link href="/upload">
-          <button type="button" className="inline-flex w-16 h-full justify-center items-center flex-col border-t-4 border-indigo-400 text-indigo-400">
-            <UploadIcon className="w-6 h-6" />
-            <span className="text-sm">
-              Upload
-            </span>
-          </button>
-        </Link>
-
-        <Link href="/account">
-          <button type="button" className="inline-flex w-16 h-full justify-center items-center flex-col border-t-4 border-indigo-400 text-indigo-400">
-            <UserIcon className="w-6 h-6" />
-            <span className="text-sm">
-              Account
-            </span>
-          </button>
-        </Link>
 
 
       </div>

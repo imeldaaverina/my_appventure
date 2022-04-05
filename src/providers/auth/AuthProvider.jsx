@@ -5,7 +5,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const jwt = getJwt();
     if (!jwt) {
-      window.location.href = '/login';
+      window.location.href = '/landing';
     }
     setMounted(true);
   }, []);

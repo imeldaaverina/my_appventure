@@ -48,8 +48,8 @@ const LoginContainer = () => {
  
     return ( 
         <NoAuthProvider> 
-          <body className="font-Poppins bg-cover bg-center bg-[url('../../public/blur_bg.png')]">
-            <main className="text-white rounded-xl min-h-screen max-w-md mx-auto top-0 bottom-0 right-0 left-0 bg-[#457275]"> 
+          <main className="font-Poppins bg-cover bg-center bg-[url('../../public/blur_bg.png')]">
+            <div className="text-white rounded-xl min-h-screen max-w-md mx-auto top-0 bottom-0 right-0 left-0 bg-[#457275]"> 
                 <div className="w-full">
                     <div className="w-full"> 
                       <div className="flex justify-between">
@@ -132,8 +132,8 @@ const LoginContainer = () => {
                         </div>
                     </form> 
                 </div> 
-            </main> 
-          </body>
+            </div> 
+          </main>
         </NoAuthProvider> 
     ) 
 } 
