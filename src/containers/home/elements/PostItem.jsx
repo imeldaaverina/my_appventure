@@ -9,7 +9,7 @@ const PostItem = ({ id, data }) => {
         <div className="text-sm">{data.postedBy}</div>
       </div>
       <div className="h-60 bg-gray-100 w-full ">
-        <img src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${data.photo}`} alt="photo" clas sName="w-full h-full object-cover" />
+        <img src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${data.photo}`} alt="photo" className="w-full h-full object-cover" />
       </div>
       <div className="p-3 text-sm w-full">
         {data.postedBy === getUser().username && (

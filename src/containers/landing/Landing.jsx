@@ -47,8 +47,9 @@ const LandingContainer = () => {
  
     return ( 
         <NoAuthProvider> 
-        <main className="font-Poppins bg-cover bg-center bg-[url('../../public/blur_bg.png')]">
-            <div className="text-white rounded-xl min-h-screen max-w-md mx-auto top-0 bottom-0 right-0 left-0 bg-[#457275]"> 
+        <main className="font-Poppins min-h-screen flex justify-center items-center bg-cover bg-center bg-[url('../../public/blur_bg.png')]">
+            <div className="text-white rounded-xl w-max mx-4 max-w-md pb-2 bg-[#457275]"> 
+                
                 <div className="w-full">
                     <div className="flex justify-between"> 
                         <div className="px-5 pt-5">
@@ -64,7 +65,7 @@ const LandingContainer = () => {
                       <img src="/Summer camp.svg" className="w-52 h-52"></img>
                     </div>
                     <form 
-                      className="w-full px-5 pb-4 bg-[#457275]" 
+                      className="w-full px-5 p-2 pt-7 pb-4 bg-[#457275]" 
                       onSubmit={handleSubmit}>
                         <div className="pb-6">
                         <p className='font-medium text-base'>Ayo bergabung dengan My Appventure untuk mengetahui berita dan update terbaru</p> 
@@ -92,6 +93,7 @@ const LandingContainer = () => {
                         <Button type="submit" disabled={!handleChange} label={loading ? 'Please wait...' : 'Berlangganan'} />
                 </form> 
             </div> 
+             
         </main>
         </NoAuthProvider> 
     ) 
