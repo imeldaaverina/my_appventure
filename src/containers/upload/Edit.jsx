@@ -1,4 +1,4 @@
-import AuthProvider from '../../providers/auth/AuthProvider';
+import NoAuthProvider from '../../providers/auth/NoAuthProvider';
 import MainLayout from '../../components/layout/MainLayout';
 import Button from '../../components/button';
 import { useFormik } from 'formik';
@@ -114,7 +114,7 @@ const Edit = () => {
     }
   };
   return (
-    <AuthProvider>
+    <NoAuthProvider>
       <MainLayout>
         <form onSubmit={handleSubmit}>
           <div className="h-60 bg-gray-100 ">
@@ -155,7 +155,7 @@ const Edit = () => {
           </div>
         </form>
       </MainLayout>
-    </AuthProvider>
+    </NoAuthProvider>
   );
 };
 export default Edit;

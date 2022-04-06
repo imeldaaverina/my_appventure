@@ -28,7 +28,7 @@ const LoginContainer = () => {
                 password: values.password, 
             }; 
             await doLogin(payload); 
-            window.location.href = "/"; 
+            window.location.href = "/home"; 
         } catch (error) { 
             alert(error); 
         } 
@@ -57,7 +57,7 @@ const LoginContainer = () => {
                         <Title text="Hai," />
                         <Title /> 
                         </div>
-                        <a href="#">
+                        <a href="./home">
                         <ButtonExit />
                         </a>
                       </div>

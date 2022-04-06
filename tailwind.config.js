@@ -1,14 +1,3 @@
-// module.exports = {
-//   content: [
-//     "./pages/**/*.{js,ts,jsx,tsx}",
-//     "./components/**/*.{js,ts,jsx,tsx}",
-//   ],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [],
-// }
-
 module.exports = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -17,10 +6,15 @@ module.exports = {
     extend: {
       fontFamily: {
         'Poppins': 'Poppins'
+      },
+      textShadow: {
+        '2xl': '0px 4px 4px rgb(0, 0, 0, 0.32)'
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-textshadow')
+  ],
 }
   
 

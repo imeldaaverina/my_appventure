@@ -13,7 +13,7 @@ const RegistrationPage = () => {
           <main className="w-full h-screen flex text-[#008C96] space-y-3 justify-center items-center bg-cover bg-center bg-[url('../../public/blur_bg.png')]"> 
             <div className="shadow-md rounded-xl max-w-md bg-white flex flex-col font-Poppins text-3xl">
                 <div className="flex justify-end"> 
-                        <a href="#">
+                        <a href="./home">
                             <ButtonExit />
                         </a>
                 </div>

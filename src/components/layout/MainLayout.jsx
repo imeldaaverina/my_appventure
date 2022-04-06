@@ -1,14 +1,21 @@
 import Navbar from "./elements/Navbar";
 import Footer from "./elements/Footer";
+import Jumbotron from "./elements/Jumbotron";
+import NavbarPost from "./elements/NavbarPost";
 
 const MainLayout = ({ children }) => {
 
   return (
     <>
       <Navbar />
-      <main className="min-h-screen max-w-md border mx-auto py-20">
+        <Jumbotron />
+        <main className="min-h-screen max-w-md border mx-auto">
+          <NavbarPost/>
+          <a href="./upload" className="flex justify-end sticky mr-10 mt-10">
+            <img src="./postIcon.svg" className="w-16"/>
+          </a>
         {children}
-      </main>
+        </main>
       <Footer />
     </>
   );

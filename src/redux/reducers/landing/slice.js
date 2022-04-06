@@ -22,15 +22,15 @@ export const useLandingDispatcher = () => {
   const dispatch = useDispatch();
   const doLanding = async (values) => {
     dispatch(toggleLoading(true));
-    const response = await callAPI({
-      url: '/auth/local',
-      method: 'POST',
-      data: values,
-    });
-    const { data } = response;
-    localStorage.setItem('jwt', data.jwt);
-    localStorage.setItem('user', JSON.stringify(data.user));
-    dispatch(toggleLoading(false));
+    // const response = await callAPI({
+    //   url: '/auth/local',
+    //   method: 'POST',
+    //   data: values,
+    // });
+    // const { data } = response;
+    // localStorage.setItem('jwt', data.jwt);
+    // localStorage.setItem('user', JSON.stringify(data.user));
+    // dispatch(toggleLoading(false));
   };
   return {
     landing,

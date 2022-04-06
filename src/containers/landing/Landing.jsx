@@ -1,11 +1,12 @@
 import {Input, Input2} from "../../components/input"; 
-import { Button, Button2, ButtonExit} from "../../components/button"; 
+import { Button, Button2, ButtonExit} from "../../components/button";
 import { Title, SubTitle,TitleForm, TitleFormBold } from "../../components/typography"; 
 import { NoAuthProvider } from "../../providers/auth"; 
 import { useFormik, getIn } from "formik"; 
 import * as Yup from 'yup'; 
 import { useLandingDispatcher } from '../../redux/reducers/landing'; 
 import { ExclamationCircleIcon, EyeIcon } from "@heroicons/react/outline";
+// import Link from "next/link"
  
 const validationSchema = Yup.object({ 
     email: Yup.string().required().email(), 
@@ -26,7 +27,7 @@ const LandingContainer = () => {
                 // password: values.password, 
             }; 
             await doLanding(payload); 
-            window.location.href = "/"; 
+            window.location.href = "/success_landing"; 
         } catch (error) { 
             alert(error); 
         } 
@@ -53,8 +54,8 @@ const LandingContainer = () => {
                         <div className="px-5 pt-5">
                             <TitleFormBold text="Bergabung bersama Komunitas Pecinta Alam dengan mudah hanya di My Appventure" /> 
                         </div>
-                        <a href="../">
-                            <ButtonExit />
+                        <a href="../home">
+                            <ButtonExit/>
                         </a>
                     </div> 
                        
@@ -88,9 +89,8 @@ const LandingContainer = () => {
                   dataTestId="input-email" 
                 /> 
                         
-
-                        <Button type="submit" disabled={!handleChange} label={loading ? 'Please wait...' : 'Berlangganan'} /> 
-                    </form> 
+                        <Button type="submit" disabled={!handleChange} label={loading ? 'Please wait...' : 'Berlangganan'} />
+                </form> 
             </div> 
         </main>
         </NoAuthProvider> 
