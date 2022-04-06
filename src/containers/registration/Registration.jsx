@@ -1,4 +1,5 @@
-import {Input, Input2} from "../../components/input";  
+import {Input, Input2} from "../../components/input";
+import { useRouter }  from "next/router";
 import { useState } from 'react';
 import { Button, Button2, ButtonExit } from "../../components/button";  
 import { Title, SubTitle, TitleForm } from "../../components/typography";  
@@ -10,9 +11,9 @@ import { ExclamationCircleIcon, EyeIcon } from "@heroicons/react/outline";
 import { CameraIcon } from '@heroicons/react/outline';
  
 const validationSchema = Yup.object({  
-    username: Yup.string().required(),
-    email: Yup.string().required().email(),  
-    password: Yup.string().required(),  
+    username: Yup.string().required("diperlukan username").min(3, "username gunakan 3-15 karakter").max(15, "username gunakan 3-15 karakter"),
+    email: Yup.string().required("diperlukan Email").email("Email tidak valid"),  
+    password: Yup.string().required("diperlukan kata sandi").min(6, "Kata sandi gunakan 6-10 karakter, tanpa spasi").max(10, "Kata sandi gunakan 6-10 karakter, tanpa spasi").matches(/^\S+$/, "Kata sandi gunakan 6-10 karakter, tanpa spasi"),  
     files: Yup.mixed().required(),
 });  
   
@@ -98,8 +99,8 @@ const RegistrationContainer = () => {
  
   return ( 
     <NoAuthProvider>  
-      <main className="font-Poppins bg-cover bg-center bg-[url('../../public/blur_bg.png')]">
-      <div className="text-white rounded-xl min-h-screen max-w-md mx-auto top-0 bottom-0 right-0 left-0 bg-[#457275]"> 
+      <main className="font-Poppins min-h-screen bg-cover flex justify-center items-center bg-center bg-[url('../../public/blur_bg.png')]">
+      <div className="text-white rounded-xl w-1/3 min-w-max max-w-lg bg-[#457275]"> 
       <div className="w-full">
       <div className="w-full">
         <div className="flex justify-between"> 
