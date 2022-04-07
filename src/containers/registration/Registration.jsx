@@ -12,9 +12,9 @@ import { CameraIcon } from '@heroicons/react/outline';
  
 const validationSchema = Yup.object({  
     username: Yup.string().required("diperlukan username").min(3, "username gunakan 3-15 karakter").max(15, "username gunakan 3-15 karakter"),
-    email: Yup.string().required("diperlukan Email").email("Email tidak valid"),  
+    email: Yup.string().required("diperlukan email").email("email tidak valid"),  
     password: Yup.string().required("diperlukan kata sandi").min(6, "Kata sandi gunakan 6-10 karakter, tanpa spasi").max(10, "Kata sandi gunakan 6-10 karakter, tanpa spasi").matches(/^\S+$/, "Kata sandi gunakan 6-10 karakter, tanpa spasi"),  
-    files: Yup.mixed().required(),
+    files: Yup.mixed().required("diperlukan foto profil"),
 });  
   
 const initialValues = { 
@@ -25,18 +25,21 @@ const initialValues = {
 };  
   
 const RegistrationContainer = () => {  
-    const { registration: { loading }, doRegistration } = useRegistrationDispatcher();  
-  
+    const { registration: { loading }, doRegistration } = useRegistrationDispatcher(); 
+    
+    const {push} = useRouter();
+   
     const onSubmit = async (values) => {  
   
         try {  
             const payload = {  
-                identifier: values.username,
-                identifier: values.email,  
+                username: values.username,
+                email: values.email,  
                 password: values.password,  
             };  
             await doRegistration(payload);  
-            window.location.href = "/";  
+            push('/success_registration');
+            // window.location.href = "/";  
         } catch (error) {  
             alert(error);  
         }  
@@ -46,7 +49,7 @@ const RegistrationContainer = () => {
       const formData = new FormData();
       formData.append('files', formValues.files);
       const upload = await callAPI({
-        url: '/upload',
+        url: '/user/upload',
         method: 'post',
         data: formData,
         headers: {
@@ -62,7 +65,7 @@ const RegistrationContainer = () => {
         },
       };
       const submitRegistration = await callAPI({
-        url: '/posts',
+        url: '/user/daftar',
         method: 'post',
         data: payload,
         headers: {

@@ -30,14 +30,16 @@ export const useLoginDispatcher = () => {
   const doLogin = async (values) => {
     dispatch(toggleLoading(true));
     const response = await callAPI({
-      url: 'auth/local',
-      // url: '/user-login/login',
+      
+      url: '/user-login/login',
+      // url: '/auth/local',
+
       method: 'POST',
       data: values,
     });
     const { data } = response;
-    localStorage.setItem('jwt', data.jwt);
-    localStorage.setItem('user', JSON.stringify(data.user));
+    // localStorage.setItem('jwt', data.jwt);
+    // localStorage.setItem('user', JSON.stringify(data.user));
     dispatch(toggleLoading(false));
   };
   return {
