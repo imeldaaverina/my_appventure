@@ -4,6 +4,7 @@ import { Title, SubTitle,TitleForm } from "../../components/typography";
 import { NoAuthProvider } from "../../providers/auth"; 
 import { useFormik, getIn } from "formik"; 
 import * as Yup from 'yup'; 
+import { useRouter }  from "next/router";
 import { useLoginDispatcher } from '../../redux/reducers/login'; 
 import { ExclamationCircleIcon, EyeIcon } from "@heroicons/react/outline";
  
@@ -11,6 +12,7 @@ const validationSchema = Yup.object({
     email: Yup.string().required("diperlukan email").email("email tidak valid"), 
     password: Yup.string().required("diperlukan kata sandi"),
 }); 
+
  
 const initialValues = { 
     email: "", 
@@ -19,16 +21,19 @@ const initialValues = {
  
 const LoginContainer = () => { 
     const { login: { loading }, doLogin } = useLoginDispatcher(); 
- 
+
+    const {push} = useRouter();
+
     const onSubmit = async (values) => { 
  
         try { 
             const payload = { 
-                identifier: values.email, 
+                username: values.email, 
                 password: values.password, 
             }; 
             await doLogin(payload); 
-            window.location.href = "/"; 
+            // window.location.href = "/"; 
+            push('/success_login');
         } catch (error) { 
             alert(error); 
         } 

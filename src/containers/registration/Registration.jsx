@@ -25,18 +25,21 @@ const initialValues = {
 };  
   
 const RegistrationContainer = () => {  
-    const { registration: { loading }, doRegistration } = useRegistrationDispatcher();  
-  
+    const { registration: { loading }, doRegistration } = useRegistrationDispatcher(); 
+    
+    const {push} = useRouter();
+   
     const onSubmit = async (values) => {  
   
         try {  
             const payload = {  
-                identifier: values.username,
-                identifier: values.email,  
+                username: values.username,
+                email: values.email,  
                 password: values.password,  
             };  
             await doRegistration(payload);  
-            window.location.href = "/";  
+            push('/success_registration');
+            // window.location.href = "/";  
         } catch (error) {  
             alert(error);  
         }  
