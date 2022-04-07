@@ -8,7 +8,7 @@ const ButtonExit = ({
 }) => { 
     return ( 
     
-    <Link href="/home">
+    <Link href="/home" passHref>
     <button 
        type={type} 
        className="flex justify-center bg-[#FF8181] w-10 h-10 rounded-tr-xl rounded-bl-xl font-bold py-2">  

@@ -2,6 +2,7 @@ import { getUser } from '../../../helpers/auth';
 import usePostItem from '../hooks/usePostItem';
 import { HeartIcon, ChatIcon, LinkIcon} from '@heroicons/react/outline';
 import { ButtonFollow} from "../../../components/button";
+import Image from 'next/image'
 
 const PostItem = ({ id, data }) => {
   const { handleRemove, handleEdit } = usePostItem();
@@ -11,7 +12,7 @@ const PostItem = ({ id, data }) => {
   return (
     <main className='m-auto font-Poppins flex justify-center mt-7 rounded-xl'>
     <div className="bg-indigo-400 rounded-xl flex justify-center items-center  flex-col">
-      <img 
+      <Image 
       // src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${data.photo}`} 
       src="blur_bg.png" 
       alt="photo"
