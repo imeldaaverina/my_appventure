@@ -1,18 +1,19 @@
 import { getUser } from '../helpers/auth';
 import usePostItem from '../containers/home/hooks/usePostItem';
 import { HeartIcon, ChatIcon, LinkIcon} from '@heroicons/react/outline';
+import Image from 'next/image'
 
 const PostItem = ({ id, data }) => {
   const { handleRemove, handleEdit } = usePostItem();
   return (
     <main className='m-auto flex justify-center'>
     <div className="bg-indigo-400 rounded-xl flex justify-center items-center flex-col w-96">
-      <img src="blur_bg.png" className='w-full h-full'/>
+      <Image src="blur_bg.png" className='w-full h-full' alt=''/>
       <div className='bg-blue-300 p-4 flex flex-col w-full'>
         <div className='bg-green-300 flex justify-between'>
           <div className='bg-pink-300 flex'>
             
-            <img src="blur_bg.png" className='rounded-full w-10 h-10' />
+            <Image src="blur_bg.png" className='rounded-full w-10 h-10' alt='' />
             <div className='bg-blue-500'></div>
           </div>
 
