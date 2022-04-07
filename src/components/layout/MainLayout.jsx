@@ -9,7 +9,7 @@ const MainLayout = ({ children }) => {
     <>
       <Navbar />
         <Jumbotron />
-        <main className="min-h-screen max-w-md border mx-auto">
+        <main className="min-h-screen max-w-md mx-auto">
           <NavbarPost/>
           <a href="./upload" className="flex justify-end mr-10 mt-10">
             <img src="./postIcon.svg" className="w-16"/>

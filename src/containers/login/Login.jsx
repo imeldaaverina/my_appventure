@@ -8,8 +8,8 @@ import { useLoginDispatcher } from '../../redux/reducers/login';
 import { ExclamationCircleIcon, EyeIcon } from "@heroicons/react/outline";
  
 const validationSchema = Yup.object({ 
-    email: Yup.string().required("diperlukan Email").email(), 
-    password: Yup.string().required("diperlukan password"),
+    email: Yup.string().required("diperlukan email").email("email tidak valid"), 
+    password: Yup.string().required("diperlukan kata sandi"),
 }); 
  
 const initialValues = { 
@@ -28,7 +28,7 @@ const LoginContainer = () => {
                 password: values.password, 
             }; 
             await doLogin(payload); 
-            window.location.href = "/home"; 
+            window.location.href = "/"; 
         } catch (error) { 
             alert(error); 
         } 

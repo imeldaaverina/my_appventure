@@ -5,7 +5,7 @@ const useLogin = () => {
     const [loading, setLoading] = useState(); 
     const submit = async (values) => { 
         const response = await callAPI({ 
-            url: '/auth/local', 
+            url: '/user-login/login', 
             method: 'POST', 
             data: values, 
         }); 
