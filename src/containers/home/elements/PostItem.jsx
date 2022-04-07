@@ -6,7 +6,7 @@ import { ButtonFollow} from "../../../components/button";
 const PostItem = ({ id, data }) => {
   const { handleRemove, handleEdit } = usePostItem();
 
-  const postData = 'besok minggu saya akan pergi berkemah dengan teman - teman saya. Saya berkemah di gunung bromo! Saya sangat tidak sabar!';
+  const postData = 'besok saya akan pergi berkemah dengan teman - teman saya. Saya berkemah di gunung bromo! Saya sangat tidak sabar!';
 
   return (
     <main className='m-auto font-Poppins flex justify-center mt-7 rounded-xl'>
